@@ -1,0 +1,9 @@
+﻿DeliveryType: Oversea, International, Other
+ProcessedRequestsPercentage: 0, 40, 71
+AvailableCopies: 0, 10, 25
+
+IF [DeliveryType] = Oversea AND [ProcessedRequestsPercentage] > 70 AND [AvailableCopies] <= 20 THEN [Result] = 20;
+IF [DeliveryType] = Oversea AND [ProcessedRequestsPercentage] > 70 AND [AvailableCopies] > 20 THEN [Result] = 25;
+IF [DeliveryType] = International AND [ProcessedRequestsPercentage] <= 40 AND [AvailableCopies] <= 15 THEN [Result] = 16;
+IF [DeliveryType] = International AND [ProcessedRequestsPercentage] > 40 OR [AvailableCopies] > 15 THEN [Result] = 20;
+IF [DeliveryType] = Other THEN [Result] = 15;
